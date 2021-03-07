@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getDate(value = new Date(), format = "YYYY-MM-DD HH:mm:ss"){
+            const config = {
+                YYYY: value.getFullYear(),
+                MM: value.getMonth() + 1,
+                DD: value.getDate(),
+                HH: value.getHours(),
+                mm: value.getMinutes(),
+                ss: value.getSeconds(),
+            };
+
+            for( var i in config){
+                format = format.replace(i, config[i]);
+            }
+
+            return format;
+        }
+
+        let date = getDate();
+
+        console.log( date );
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function ages(number) {
+            console.log(number);
+            // switch( 表达式 )
+            switch (number > 0) {
+                case number === 60:
+                    alert('老年');
+                    break;
+                case number === 40:
+                    alert('壮年');
+                    continue;
+                case number == '40':
+                    alert('壮年2');
+                    break ;
+                default:
+                    alert('青少年');
+            }
+        };
+        ages(40);
+    </script>
+</body>
+
+</html>

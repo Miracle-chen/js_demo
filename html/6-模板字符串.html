@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let list = [
+            { name: 'jerry1', age: 20 },
+            { name: 'jerry2', age: 22 },
+            { name: 'jerry3', age: 23 }
+        ];
+        let html = `
+            <ul>
+                ${ list.map( item => {
+                    // 变量标签
+                    return tag`我是${ item.name } - ，我${ item.age }`;
+                })}
+            </ul>
+        `;
+        // 标签
+        function tag(strings, ...vars ){
+            console.log( strings );
+            console.log( vars );
+        }
+        // document.body.append(html);
+    </script>
+</body>
+
+</html>

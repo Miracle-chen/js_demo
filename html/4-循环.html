@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // while
+        let i = 0 , j = 0;
+        while(i < 10){
+            console.log( i );
+            i ++ ;
+        }
+
+        do{
+            console.log( j );
+            j ++;
+        }while(j < 10);
+
+
+        var a = [{ name:' jerry', age: 20 }];
+        for( let i in a ){
+            console.log( i );
+        }
+        for( let i of a ){
+            console.log( i );
+        }
+        a.forEach(function(el){
+            console.log( el);
+        });
+    </script>
+</body>
+</html>

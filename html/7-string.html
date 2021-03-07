@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = 'my Name is Jerry';
+        let str = 'woshiyigedashuige';
+        // let a = str.substring(-1, 5);
+        // let b = str.substr(1);
+        // let c = str.slice(1);
+        // console.log( a, b, c );
+        let arr = [1, '2', 'w'];
+
+        arr.some( i => console.log(str.includes(i)) );
+
+        let str1 = str.replace('w', '<a href="https://www.houdunren.com">W</a>');
+        console.log( str1 );
+        document.write( str1 );
+
+
+        let date = new Date();
+
+        console.log( date * 1);
+        console.log( date.getTime() );
+        console.log( date.valueOf() );
+        console.log( Number(date) );
+    </script>
+</body>
+</html>
