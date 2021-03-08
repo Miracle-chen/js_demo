@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function move(arr, start, end){
+            let item = arr.splice(start, 1);
+            arr.splice(end, 0, item[0]);
+            console.log( arr );
+        }
+        let arr = ['三国演义', '水浒传', '红楼梦', '西游记'];
+
+        move(arr, 1, 3);
+
+
+
+        // let arr1 = arr.fill('金瓶梅', 1, 5);
+        // console.log( arr1 );
+        // let newStr = '金瓶梅';
+        // var arr1 = arr.slice( 1, 3 );
+        // console.log( arr1 ); 
+        // console.log( arr );
+        // let obj = { 0: 'jerry', 1: 18, length: 3 };
+        // console.log(Array.from(obj, item => item + '123'));
+        // let a = [...arr, 'jerry'];
+        // // let b = [...obj];
+        // console.log(a);
+        // // console.log( b );
+
+
+        // let [name, ...arr] = ['后盾人', 'hdcms', 'houdunren.com'];
+        // console.log(name, arr); 
+
+        // const [ ...rest ] ='woaibeijingtiananmen';
+
+        // console.log( rest[0] );
+
+        // function hd([a, b]) {
+        //     console.log(a, b);
+        // }
+        // hd(['后盾人', 'hdcms']);
+    </script>
+</body>
+
+</html>
