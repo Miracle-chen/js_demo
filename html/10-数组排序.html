@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let list = [ 1, 4, 2, 3, 5, 7, 8, 5 ];
+        function sortList(arr){
+            console.log( list );
+            for( var i = 0; i< list.length; i ++){
+                for( var j = 0; j < list.length; j ++ ){
+                    if( list[i] < list[j]){
+                        let tep = list[i];
+                        list[i] = list[j];
+                        list[j] = tep;
+                    }
+                }
+            };
+            return arr;
+        };
+
+        let newArr = sortList(list);
+        console.table( newArr );
+    </script>
+</body>
+</html>

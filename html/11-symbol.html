@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let obj = {
+            name: 'jerry',
+            [Symbol('地址')]: '深圳福田',
+        };
+
+        for (const key in obj) {
+            console.log( key );    
+        }
+
+        for(var key of Object.getOwnPropertySymbols(obj)){
+            console.log( key );
+        };
+
+        for( var key of Reflect.ownKeys(obj) ){
+            console.log(key);
+        }
+
+
+        /**************************************/ 
+        // class Cache{
+        //     static data = {};
+        //     static set(name, value){
+        //         this.data[name] = value;
+        //     };
+        //     static get(name){
+        //         return this.data[name]
+        //     }
+        // };
+
+        // let users = {
+        //     name: 'apple',
+        // };
+
+        // let cart = {
+        //     name: 'apple'
+        // };
+
+        // Cache.set('user', users.name );
+        // Cache.set('cart', cart.name );
+        // let data = Cache.get('user');
+        // console.log( data );
+
+
+        /**************************************/ 
+        // let user1 = {
+        //     name:'李四',
+        //     key: Symbol(),
+        // };
+
+        // let user2 = {
+        //     name:'李四',
+        //     key: Symbol()
+        // };
+
+        // let list = {
+        //     [user1.key]:{ js: 100 },
+        //     [ user2.key ]: { js: 20 },
+        // };
+
+        // console.log( list[user2.key ]);
+
+        /**************************************/ 
+        // let hd = Symbol();
+        // let cms = Symbol('后盾人');
+        // let edu = Symbol.for('后盾人');
+
+        // console.log( cms );
+        // console.log( cms.description );
+        // console.log( cms.toString() );
+        // console.log( edu );
+        // console.log( Symbol.keyFor(edu) );
+
+        // // 作为对象属性
+        // let sym = Symbol('houdunren');
+        // let obj = {
+        //     [sym]:'houdunren.com'
+        // };
+
+        // console.log( obj[sym]);
+
+    </script>
+</body>
+</html>

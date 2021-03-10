@@ -9,14 +9,19 @@
 
 <body>
     <script>
-        function move(arr, start, end){
+        function move(arr, start, end) {
             let item = arr.splice(start, 1);
             arr.splice(end, 0, item[0]);
-            console.log( arr );
+            console.log(arr);
         }
         let arr = ['三国演义', '水浒传', '红楼梦', '西游记'];
 
-        move(arr, 1, 3);
+        let allThan4 = arr.every(i => i.length >= 4);
+        let hasThan4 = arr.some(i => i.length >= 4);
+
+        console.log(allThan4, hasThan4);
+
+        // move(arr, 1, 3);
 
 
 
