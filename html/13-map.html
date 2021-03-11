@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let map = new Map();
+
+        // map.set('name', 'jerry');
+        // map.set('age', '1');
+        // map.set(function a(){}, 'function');
+        // map.set({a:1}, 1);
+
+        // console.log(map);
+        // console.log( [ ...map ] );
+        
+
+
+        // map.delete('name');
+
+        // console.log(map.has('age'));
+
+        // for (const key of map.keys()) {
+        //     console.log( key );
+        // }
+
+        // for (const key of map.values()) {
+        //     console.log( key );
+        // }
+
+        // for (const key of map.entries()) {
+        //     console.log( key );
+        // }
+
+        // map.forEach( i => console.log( i ));
+
+        // 递归  阶乘
+        let multiple = (mul) => {
+
+            return mul === 1 ? 1 : mul * multiple(mul - 1 );
+
+            // if( mul === 1 ){
+            //     return 1;
+            // };
+
+            // return mul * multiple(mul - 1);
+        }
+
+        let a = multiple(5);
+
+
+        // 递归求和
+
+        function sum ( ...args ){
+            if( args.length === 0 ){
+                return 0;
+            };
+
+            return args.pop() + sum( ...args );
+        };
+
+        let b = sum( 1, 2, 3, 4, 5, 6, 7, 8, 9 );
+        console.log( b );
+
+        console.log( a );
+    </script>
+</body>
+</html>

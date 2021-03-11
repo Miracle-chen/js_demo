@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let hd = {
+            name:'houdunren',
+            show: function(){
+
+                function render(){
+                   // 函数是当前对象属性或类方法，this就是当前函数。普通函数的this是指向window。 
+                    console.log( this );
+                };
+
+                render();
+
+                console.log( this );  // 当前对象的引用
+                return this.name;
+            }
+        };
+
+        let name = hd.show();
+
+        console.log( name );
+
+
+        function User(name){
+            this.name = name;
+            this.getName = function(){
+                function render(){
+                    console.log(this);  // user
+                };
+                console.log( this );  // window
+                render();
+                return this.name;
+            }
+        };
+
+        let user1 = new User('张三');
+        console.log( user1 );
+        let names = user1.getName();
+
+        console.log( names );
+    </script>
+</body>
+</html>
