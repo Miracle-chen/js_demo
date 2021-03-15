@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>houdunrn.com</button>
+    <script>
+        let Dom = {
+            site:'后盾人',
+            bind: function(){
+                let btn = document.querySelector('button');
+                btn.addEventListener('click', (event) => {
+                    console.log(this);
+                    console.log(event.target.innerHTML);
+                    console.log( this.site + event.target.innerHTML );
+                })
+            }
+        }
+
+        Dom.bind();
+
+
+        let lessons = {
+            site:'后盾人',
+            list:['js', 'css','html'],
+            // show: function(){
+            //     return this.list,map( function(item){
+            //         console.log( this );  // window
+            //     })
+            // }
+            // show: function(){
+            //     return this.list,map( function(item){
+            //         console.log( this );  // lessons
+            //     }, this)
+            // }
+            show: function(){
+                // 箭头函数的this指向上下文，也就是父级作用域中的this
+                return this.list.map( item => {
+                    console.log( this )  // lessons
+                } )
+            }
+        };
+
+        // lessons.show();
+    </script>
+</body>
+</html>
