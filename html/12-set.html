@@ -7,9 +7,20 @@
 </head>
 <body>
     <script>
-        // let set = new Set([1, 2, 2,  3]);
-        // console.log(set.values());
-        // // set.values().map( i => console.log(i));
+        let set = new Set([1, 2, 2,  6]);
+        console.log(set.values());
+
+        for (const key of set.keys()) {
+            console.log( key );
+        }
+        for (const key of set.values()) {
+            console.log( key );
+        }
+
+        for (const key of set.entries()) {
+            console.log( key );
+        }
+        // set.values().map( i => console.log(i));
 
         // set.forEach(i => console.log( i ));
 
