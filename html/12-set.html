@@ -7,11 +7,11 @@
 </head>
 <body>
     <script>
-        let set = new Set([1, 2, 2,  3]);
-        console.log(set.values());
-        // set.values().map( i => console.log(i));
+        // let set = new Set([1, 2, 2,  3]);
+        // console.log(set.values());
+        // // set.values().map( i => console.log(i));
 
-        set.forEach(i => console.log( i ));
+        // set.forEach(i => console.log( i ));
 
         // set.add(4);
         // set.delete(1);
@@ -23,6 +23,24 @@
         // let arr = Array.from(set);
         // let numberList = arr.filter( i => typeof i === 'number' );
         // console.log( numberList );
+
+
+        // var a = new Set([1, 2, 3]);
+        // var b = new Set([4, 3, 2]);
+
+        // // 去重
+        // let c = new Set([...a, ...b]);
+        // // 交集
+        // let d = new Set( [...a].filter( i => b.has(i) ));
+        // // 差集
+        // let e = new Set( [...a].filter( i => !b.has(i) ));
+
+
+        let list = [undefined, undefined, NaN, NaN ];
+
+        console.log(new Set(list));
+
+        // console.log( c, d, e);
     </script>
 </body>
 </html>
