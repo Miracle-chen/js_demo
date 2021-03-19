@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+<script>
+    function Merchant(name){
+        this.name = name;
+    };
+    // 公用的方法，放到 原型 prototype上，在实例调用的时候都指向同一个内存地址，以防止多次创建，占用内存。
+    Merchant.prototype.belong = function(){
+        console.log('信瑞泰');
+    };
+
+    Merchant.prototype.type = '商户';
+
+    function a (){
+
+    }
+
+    let mer1 = new Merchant('shanghai');
+    let mer2 = new Merchant('shenzhen');
+
+    mer1.belong();
+    mer2.belong();
+
+    console.log( mer1.belong === mer2.belong );
+
+    // hasOwnProprety 判断属性是自身属性，还是
+    let hasName = mer1.hasOwnProperty('name');
+    console.log( hasName );
+
+    // isProtoTypeOf 判断某个prototype 和 实例 之间的关系
+    console.log( mer1.__proto__.isPrototypeOf(mer1) );
+    console.log( Merchant.prototype.isPrototypeOf(mer1) );
+    console.log( Merchant.prototype.isPrototypeOf(a) );
+
+    // in  某个属性是不是实例的实现，不管是本地还是继承的 prototype 的
+    console.log( 'name' in Merchant );
+    console.log( 'type' in mer1 );
+    console.log( 'type2' in mer1 );
+    
+</script>
+</html>
