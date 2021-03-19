@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button>houdunren.com</button>
+        <button>hdcms.com</button>
+    </div>
+    <script>
+        function num (a, b){
+            return this.r + a +b;
+        }
+
+        let func = num.bind({ r:1 }, 2, );
+        console.log(func(3));
+
+
+        function show(){
+            console.log(this.name);
+        };
+        // bind不会立即执行，需要()被调用,可以有两次传参的机会。call会立即执行 
+        show.bind({ name: 'jerry'})();
+        show.call({ name:'tom'});
+
+
+        // let list = [1, 2, 3, 4, 5];
+
+        // let max = Math.max.apply( Math, list );  // => Math.max.apply(null, list);
+
+        // console.log( max );
+
+
+        // function show(){
+        //     alert(this.innerHTML);
+        // }
+        // let btns = document.getElementsByTagName('button');
+        // console.log( btns );
+        // for( var i = 0; i< btns.length; i ++){
+        //     btns[i].addEventListener('click', (el) => show.call(el.target))
+        // }
+
+
+        // let lisi = {
+        //     name: 'lisi',
+        // };
+        // let wangwu = {
+        //     name: 'wangwu'
+        // };
+
+        // function User(hello, mine){
+        //     console.log( hello + ' ' + mine +' ' + this.name );
+        // };
+        // // call 、 apply 会改变this的指向，call(lisi) ，将this指向lisi。并且会立即执行，在call和apply之后立刻指向User函数。也就是将lisi注入到User里。
+        // // 接受参数不同，call可以传入多个参数，apply需要传入一个数组。
+        // User.call(lisi, 'dajiahao', 'woshi');
+        // User.apply(wangwu, ['dajiahao', 'woshi']);
+    </script>
+</body>
+</html>
