@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = Symbol("a")
+        let obj = { name: 'zhangsan', age: 18, [Symbol('地址')]: '深圳'};
+        Object.defineProperty(obj, 'name', {
+            value: 'lisi',
+            enumerable: false,
+        } );
+        Object.keys(obj).map( i => console.log(i));   // age
+        console.log( Object.getOwnPropertyDescriptor( obj, 'name' ));
+        console.log( Object.getOwnPropertyDescriptors( obj ));
+        console.log( Object.getOwnPropertyNames( obj ));
+        console.log( Object.getOwnPropertySymbols( obj ));
+    </script>
+</body>
+</html>

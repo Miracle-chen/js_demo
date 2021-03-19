@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+
+        // 封装 和 抽象（内部方法和数据不希望被外部改变的时候，可以做抽象处理）
+        function User(name, age){
+            let data = { name, age };
+            let info = function(){
+                console.log(data.name);
+            };
+            this.show = function(){
+                info();
+            }
+        };
+
+
+        let user = new User('zhangsan');
+        user.name = 'lisi';
+        console.log(user);
+        user.show();
+
+
+
+
+        // function User(name){
+        //     this.name = name;
+        //     this.show = function(){
+        //         //  this 是调用该方法的当前对象
+        //         console.log(this);
+        //         alert(this.name);
+        //     }
+        // };
+
+        // let user = new User('zhangsan');
+        // user.show();
+        // let fun = user.show;
+        // fun();
+        // function user(name, age) {
+        //     console.log(this);
+        //     return {
+        //         name,
+        //         age,
+        //         show() {
+        //             console.log(this);
+        //             console.log(this.name);
+        //         },
+        //         info() {
+        //             console.log(this.name + ' ' + this.age);
+        //         }
+        //     }
+        // };
+
+        // let zhangsan = user('zhangsan', 10);
+        // zhangsan.show();
+        // zhangsan.info();
+    </script>
+</body>
+
+</html>
