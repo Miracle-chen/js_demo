@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+    </body>
+
+    <script>
+        let target = {
+            name: 'xinruitai',
+            loaction: 'apkangdedasha',
+        };
+        let handler = {
+            get: function(target, key){
+                return target[key];
+            },
+            set: function(target,key, value){
+                target[key] = value;
+            }
+        };
+
+        let proxy = new Proxy(target,handler );
+
+        let name = proxy.name;
+
+        proxy.name='123';
+
+        let proxy2 = new Proxy(target, {});
+
+        console.log(proxy);
+        
+        console.log(proxy2);
+
+    </script>
+
+</html>

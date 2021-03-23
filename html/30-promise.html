@@ -9,33 +9,52 @@
 
 <style>
     div {
-      width: 100px;
-      height: 100px;
-      background: yellowgreen;
-      position: absolute;
+        width: 100px;
+        height: 100px;
+        background: yellowgreen;
+        position: absolute;
     }
-  </style>
+</style>
 
 <body>
     <div></div>
     <script>
-        function interval(callback, delay = 100) {
-            let id = setInterval(() => callback(id), delay);
-        }
+        // function interval(callback, delay = 100) {
+        //     let id = setInterval(() => callback(id), delay);
+        // }
 
-        const div = document.querySelector("div");
-        interval(timeId => {
-            const left = parseInt(window.getComputedStyle(div).left);
-            div.style.left = left + 10 + "px";
-            if (left > 200) {
-                clearInterval(timeId);
-                interval(timeId => {
-                    const width = parseInt(window.getComputedStyle(div).width);
-                    div.style.width = width - 1 + "px";
-                    if (width <= 0) clearInterval(timeId);
-                }, 10);
-            }
-        }, 100);
+        // const div = document.querySelector("div");
+        // interval(timeId => {
+        //     const left = parseInt(window.getComputedStyle(div).left);
+        //     div.style.left = left + 10 + "px";
+        //     if (left > 200) {
+        //         clearInterval(timeId);
+        //         interval(timeId => {
+        //             const width = parseInt(window.getComputedStyle(div).width);
+        //             div.style.width = width - 1 + "px";
+        //             if (width <= 0) clearInterval(timeId);
+        //         }, 10);
+        //     }
+        // }, 100);
+        var p0 = new Promise(function (resolve, reject) {
+            console.log('p0');
+            resolve('p0 resolve');
+        });
+
+        var p1 = new Promise(function (resolve, reject) {
+            console.log('p1');
+            resolve( p0 );
+        });
+
+        var p2 = new Promise(function (resolve, reject) {
+            console.log('p2');
+            resolve(p1);
+        })
+        .then( res => console.log( res ));
+        p2.catch( err => console.log( err ));
+
+
+        console.log( p2 );
     </script>
 </body>
 
