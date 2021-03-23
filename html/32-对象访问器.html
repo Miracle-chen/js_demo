@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            data: {
+                name: 'jerry',
+                age: 20
+            },
+            set age(value){
+                if( typeof value === 'number' && value > 18 && value < 65 ){
+                    this.data.age = value;
+                }else{
+                    throw new Error('年龄格式错误或不在范围内');
+                }
+            },
+            get age(){
+                return this.data.age;
+            }
+        };
+
+        console.log( obj.age );
+        obj.age = 50;
+        console.log( obj.age );
+
+    </script>
+</body>
+</html>

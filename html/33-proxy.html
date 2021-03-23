@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        // // 基础用法
+        // let hd = { name: 'hcdms.com' };
+        // let handler = {
+        //     // 传入的key和value
+        //     get (obj, property ){
+        //         return obj[property];
+        //     },
+        //     set (obj, property, value){
+        //         obj[property] = value;
+        //         return true;
+        //     }
+        // }
+        // let h = new Proxy( hd, handler);
+
+        // console.log(h.name);
+        // h.name = '后盾人';
+        // console.log(h.name);
+
+
+        // 控制函数
+        function factorial(num){
+            return num === 1 ? 1 : num * factorial( num - 1);
+        };
+
+        let proxy = new Proxy(factorial, {
+            // 函数 第二个参数 是函数传入的参数
+            apply(func, num){
+                console.time('开始');
+                func.call(this, num);
+                console.timeEnd('开始');
+            }
+        });
+
+        proxy.apply( 10 );
+    </script>
+</body>
+</html>
