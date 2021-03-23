@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        // 深拷贝
+        let obj = {
+            name: "后盾人",
+            user: {
+                name: "hdcms"
+            },
+            data: []
+        };
+
+        function copy(object) {
+            let obj = object instanceof Array ? [] : {};
+            for (const [k, v] of Object.entries(object)) {
+                obj[k] = typeof v == "object" ? copy(v) : v;
+                
+            }
+            return obj;
+        }
+
+        let obj1 = copy(obj);
+
+        obj1.data.push('zhangpingshishazi');
+
+        console.log(JSON.stringify(obj));
+        console.log(JSON.stringify(obj1));
+
+
+
+
+        // let a = {
+        //     name: '1',
+        // };
+        // let b = {
+        //     name: 2,
+        // };
+        // Object.setPrototypeOf(a, b);
+        // console.log( a );
+        // console.log( a.__proto__  === b );
+        // console.log( b );
+    </script>
+</body>
+
+</html>

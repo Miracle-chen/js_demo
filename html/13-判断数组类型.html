@@ -10,13 +10,23 @@
         let arr = [1, 2, 3];
         let obj = { a: 1, b: 3 };
 
+        console.log( arr instanceof Object);
+        console.log( 1 instanceof Object);
+        console.log( '12' instanceof Object);
+
+        console.log(Array.prototype);
+
+        console.log( arr.constructor );
+
+        console.log( arr.constructor === Array );
+
         // instanceof Array
 
         // Array.isArray
 
         // constructor === Array
 
-        // __proto__  Array.prototype
+        // __proto__  Array.prototype   => 指向原型
 
         // Object.prototype.toString.call(arr) === '[Object Array]'
         
