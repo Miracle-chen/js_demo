@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input v-model="title">
+    <input v-model="title">
+    <h2 v-bind="title"></h2>
+    <hr>
+    <input v-model="decsription">
+    <input v-model="decsription">
+    <h2 v-bind="decsription"></h2>
+    <hr>
+</body>
+
+<script>
+    function View(){
+        let proxy = new Proxy({}, {
+            get(){},
+            set( {}, property, value ){
+                document.querySelectorAll(`[v-model=${ property }],[v-bind=${ property }]`).forEach( i => {
+                    i.innerHTML = value;
+                    i.value = value;
+                })
+            }
+        });
+        this.run = function(){
+            let els = document.querySelectorAll('[v-model]');
+            els.forEach( i => {
+                i.addEventListener('keyup', function(){
+                    proxy[this.getAttribute('v-model')] = this.value;
+                })
+            })
+            console.log('run')
+        }
+    };
+
+    new View().run();
+</script>
+</html>
