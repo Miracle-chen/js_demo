@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let str = 'javascript';
+        let strs = str[Symbol.iterator]();
+
+
+        let myMap = new Map();
+        myMap.set(0, "zero");
+        myMap.set(1, "one");
+        myMap.set(2, "two");
+
+        // 遍历 key 和 value
+        for (let [key, value] of myMap) {
+            console.log(key + " = " + value);
+        }
+        for (let [key, value] of myMap.entries()) {
+            console.log(key + " = " + value);
+        }
+
+
+        let map = new Map( [ ['name', 'jerry'], ['age', 18 ]]);
+
+        // map.forEach( (value, key ) => console.log( key +'===' + value ));
+
+        // for (const [key, value] of map.entries() ) {
+        //     console.log( key, value );
+        // }
+
+        const arrayLink = {0: "zero", 1: "one", length: 2};
+
+        for (const key in arrayLink) {
+            if (arrayLink.hasOwnProperty(key)) {
+                console.log( key );
+                console.log( arrayLink[key] );
+            }
+        }
+
+        console.log( Array.from(arrayLink) );
+    </script>
+</body>
+
+</html>
