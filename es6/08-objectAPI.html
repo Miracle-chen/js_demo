@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        var obj = {
+            prop: function() {},
+            foo: 'bar'
+        };
+
+        console.dir( Object.valueOf( obj ) );
+
+        console.dir( Object.toString( obj ) );
+
+        let arr = [[1, '1']];
+
+        const obj3 = Object.fromEntries(arr);
+
+        console.log( obj3 );
+
+        let newobj = Object.seal(obj);
+
+        // newobj.name = '23';
+
+        newobj.foo = 'new foo';
+
+        console.log( newobj );
+
+        console.log( Object.isSealed(newobj) );
+
+        console.log( Object.isExtensible(newobj) );
+        // let o = Object.freeze(obj);
+
+        // console.log(  o === obj );
+
+        // Object.assign( arr, obj );
+
+        // console.log( arr );
+
+        // // console.log( o );
+
+        // console.log( Object.isFrozen(Object.freeze(arr)) );
+
+        // console.log( Object.isFrozen( obj ));
+
+        // console.log( Object.isExtensible( obj) );
+    </script>
+</body>
+
+</html>
