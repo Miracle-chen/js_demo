@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    // 示例一
+    let lessons = { php: 90, js: 102, html: 92, css: 85 };
+    // 借用Math.max方法。将lessons的值集合传给Math.max，此时不需要使用this，故第一个参数可传可不传。
+    Math.max.apply( null, Object.values( lessons) );   // 102
+
+    // 示例二
+    var name = 'zhansgan', age = 18;
+    var obj = {
+        show: function(...args){
+            return this.name +'=' + this.age ;
+        }
+    };
+    let db = {
+        name: 'zhangsan',
+        age: 30
+    };
+    obj.show.call( db );  // 将obj中的this指向 db对象。
+    obj.show.bind( db )();  // 将obj中的this指向 db对象。
+
+
+    /*
+        + func.call(obj, params1, params2, ... ) / func.apply(obj, [params1, params2, ...] ) / func.bind((obj, params1, params2, ... )) 
+        + 都是改变对象的this指向的api，都会将this指向其第一个参数。
+        + call 和 apply 会立即执行函数，而bind不会，需要()手动执行。
+        + call 和 bind 可以接收多个参数，除第一个参数外，其他的参数会被func接收。
+        + apply 只有两个参数， 第二个参数要是数组格式，会被func接收。
+    
+    */ 
+</script>
+
+
+</html>
+

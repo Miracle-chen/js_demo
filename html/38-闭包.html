@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    let nAdd;
+    let t = () => {
+        let n = 99;
+        nAdd = () => {
+            n++;
+        };
+        let t2 = () => {
+            console.log(n);
+        };
+        return t2;
+    };
+
+    let a1 = t();
+
+    console.log( nAdd );
+
+    let a2 = t();
+
+    console.log( nAdd );
+
+    nAdd();
+    a1();
+    a2();
+</script>
+
+
+</html>

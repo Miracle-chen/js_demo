@@ -10,31 +10,78 @@
 <body>
     <script>
 
+        // 原型和原型链
+
+        // 声明一个构造函数 Person
+        function Person (name = '张三') {
+            this.name = name;
+        };
+        // 可以给函数的原型上添加方法，为Person添加一个方法 getName
+        Person.prototype.getName = () => {
+            return 'getting name';
+        };
+        // 创建一个Person实例
+        let person = new Person();
+
+        console.log( person );
+
+        // 实例的__proto__指向构造函数的prototype,构造函数的显示原型的constructor指向的是构造函数。
+
+        // 构造函数内部没有getName, 会向其父级寻找，找到后继承该方法。 实例的 __proto__ 等同于 函数的 prototype
+        person.getName();  // 'getting name';
+
+        person.__proto__ === Person.prototype;
+
+        person.__proto__.constructor === Person;
+
+        person.__proto__.__proto__ === Object.prototype;
+
+        person.__proto__.__proto__.constructor === Object;
+
+        person.__proto__.__proto__.__proto__ === null;
+
+        // 如上所示，实例的__proto__指向的就是函数的原型，原型的constructor属性则将其指向构造函数。通过__proto__不断一级一级向上而形成的链子，就被成为原型链。
+        // 逐层向上查找，直到null结束，如扔没有找到，则返回undefined。
+
+        // 拓展原型链的四中方法
+        // 方式一： Object.create()
+        Object.create(proto, [ properties ]);  // 创建一个对象，将其__proto__指向 proto
+
+        // 方式二： Object.setPrototypeOf(obj, prototype);  // prototype 设置为 obj 的 __proto__ 
+
+        // 方式三： __proto__;  
+        obj1.__proto__ = obj2;
+
+        // 方式四： 构造函数创建
+        function Person(){};
+        Person.prototype.getName = () => { console.log( 'getName' ) };
+
+
 
         // 深拷贝
-        let obj = {
-            name: "后盾人",
-            user: {
-                name: "hdcms"
-            },
-            data: []
-        };
+        // let obj = {
+        //     name: "后盾人",
+        //     user: {
+        //         name: "hdcms"
+        //     },
+        //     data: []
+        // };
 
-        function copy(object) {
-            let obj = object instanceof Array ? [] : {};
-            for (const [k, v] of Object.entries(object)) {
-                obj[k] = typeof v == "object" ? copy(v) : v;
+        // function copy(object) {
+        //     let obj = object instanceof Array ? [] : {};
+        //     for (const [k, v] of Object.entries(object)) {
+        //         obj[k] = typeof v == "object" ? copy(v) : v;
                 
-            }
-            return obj;
-        }
+        //     }
+        //     return obj;
+        // }
 
-        let obj1 = copy(obj);
+        // let obj1 = copy(obj);
 
-        obj1.data.push('zhangpingshishazi');
+        // obj1.data.push('zhangpingshishazi');
 
-        console.log(JSON.stringify(obj));
-        console.log(JSON.stringify(obj1));
+        // console.log(JSON.stringify(obj));
+        // console.log(JSON.stringify(obj1));
 
 
 

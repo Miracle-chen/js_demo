@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function(){
+        console.log( 'DOMContentLoaded' );
+    });
+
+    document.onbeforeunload = function() {
+        return false;
+    };
+
+    document.addEventListener("beforeunload", alert('确认离开?'));
+
+    document.addEventListener('readystatechange', () => console.log('readyState:' + document.readyState));
+
+</script>
+
+<script src="/js/01.js"></script>  // alert('01.js')
+
+<script>
+    setTimeout(()=>{
+        console.log('我是script1');
+    }, 1000)
+
+    async function asy (){
+        setTimeout(()=>{
+            console.log('async function');
+            console.log( document.readyState );
+        }, 1000)
+    }
+    asy();
+</script>
+
+
+</html>
+

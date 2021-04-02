@@ -12,30 +12,31 @@
     </body>
 
     <script>
-        let target = {
-            name: 'xinruitai',
-            loaction: 'apkangdedasha',
-        };
-        let handler = {
-            get: function(target, key){
-                return target[key];
+
+        let data = {
+            name: 'tom',
+            age: 20,
+            get info(){
+                return this.name + ' ' + this.age;
             },
-            set: function(target,key, value){
-                target[key] = value;
+            set name(value){
+                return this.name = value;
             }
         };
 
-        let proxy = new Proxy(target,handler );
+        let zhangsan = {
+            name:'zhangsan',
+            age: 40
+        }
 
-        let name = proxy.name;
+        Reflect.get( data, 'info', zhangsan );
 
-        proxy.name='123';
+        Reflect.set( data, 'name', 'jerry' );
 
-        let proxy2 = new Proxy(target, {});
 
-        console.log(proxy);
-        
-        console.log(proxy2);
+        console.log( data );
+
+        console.log( zhangsan );
 
     </script>
 
