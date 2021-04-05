@@ -9,6 +9,30 @@
 
 <body>
     <script>
+        function User (){};
+        function Admin(){};
+
+        Admin.prototype = User.prototype;
+
+        Admin.prototype.__proto__ = User.prototype;
+
+        let a = {name: '123'};
+        let b = {name: '234'};
+        let c = '123';
+
+        let a1 = Object.create(null);
+
+        a1.__proto__ = 'houdunren';
+
+        console.log( a1 );
+
+        Object.setPrototypeOf(b, a );
+
+        console.dir( b );
+
+        // return a;
+
+
         let obj = { a: 1 };
         obj.__proto__.show = function(){
             console.log( 'show' );
