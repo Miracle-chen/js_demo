@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // map 实例化
+        let map = new Map();
+        // 参数是一个二维数组格式
+        let newMap = new Map([['name', 'jerry'], ['age', 18]]);
+
+        let str = 'string';
+        let obj = { str: '对象' };
+        let num = Number('string');
+
+        // 赋值元素
+        map.set(str, '字符串');
+        map.set(obj, '对象');
+
+        // 虽然 NaN 和任何值甚至和自己都不相等(NaN !== NaN 返回true)，NaN作为Map的键来说是没有区别的。
+        map.set(NaN, 'not a number');
+        map.set(num, 'not num');
+
+        // 判断是否包含
+        map.has(str);
+        // 长度
+        map.size;
+        // 删除某一项
+        map.delete(func);
+        // 删除全部
+        map.clear();
+        // 获取元素
+        map.get(obj); 
+
+        // for of 遍历 map / map.keys / map.values / map.entries
+        for( var [key, value] of map){
+            console.log( key, value );
+        }
+
+        for( var [key, value] of map.entries()){
+            console.log( key, value );
+        }
+
+        for( var key of map.keys()){
+            console.log( key );
+        }
+
+        for( var value of map.values()){
+            console.log( value );
+        }
+
+
+        // forEach遍历
+        map.forEach(( value, key) => console.log( value, key ));
+
+        // 对象的操作 --- 转化 / 克隆 / 合并
+        // map => 数组
+        console.log( Array.from( map ));
+        // map 克隆
+        let map2 = new Map([ ...map ]);
+
+        console.log( map === map2 );
+
+        let map3 = new Map( [...map,  ...newMap ] );
+
+        console.log( map3 );
+
+    </script>
+</body>
+</html>

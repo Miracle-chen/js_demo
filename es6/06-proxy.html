@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // "use strict";
+        // let target = {
+        //     name: 'javascript',
+        //     desc: 'es6',
+        //     _time: 2015
+        // };
+        // let handler = {
+        //     // target 目标对象 key 键名  receiver Proxy 实例本身
+        //     get: (target, key, receiver) => {
+        //         // 此次代表获取数据时候所进行的额外操作。
+        //         if( key[0] === '_' ){
+        //             throw new Error('invalid attemp to get private ' + key );
+        //         }
+        //         return target[key]
+        //     },
+        //     set: (target, key, value, receiver) => {
+        //         // 此次代表修改数据时候所进行的额外操作。
+        //         if( key === 'desc' && (value.length > 20 || value.length < 5) ){
+        //             throw new Error( `desc 长度不符合要求` );
+        //         }
+        //         target[key] = value;
+        //         // 在严格模式下，set 需要返回一个true，否则会报错 TypeError
+        //         return true;
+        //     }
+        // };
+
+        // //  target 目标对象 handler 动作对象
+        // let proxy = new Proxy( target, handler );
+        // proxy.name;
+        // proxy.desc = 'ecmascript2015';
+        // proxy._time; // TypeError
+
+
+        // // apply
+        // function sub(a, b) {
+        //     return a - b;
+        // };
+        // let handler = {
+        //     apply: function(target, ctx, args){
+        //         console.log( args );
+        //         console.log( ...arguments );
+        //         return Reflect.apply(...arguments);
+        //     }
+        // }
+
+        // let proxy = new Proxy(sub, handler);
+        // console.log(proxy(2, 1));
+
+      
+    </script>
+</body>
+
+</html>

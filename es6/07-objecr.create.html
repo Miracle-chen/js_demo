@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        var triangle = {a: 1, b: 2, c: 3};
+
+        function ColoredTriangle() {
+            this.color = 'red';
+        }
+
+        //ColoredTriangle.prototype = triangle;  //ColoredTriangle.prototype.constructor === ColoredTriangle// false
+        Object.assign(ColoredTriangle.prototype, triangle) //ColoredTriangle.prototype.constructor === ColoredTriangle// true
+
+        var c = new ColoredTriangle();
+
+        console.log( c );
+
+        
+
+        // let obj1 = { name: '12' };
+        // let obj2 = {};
+        // // 设置 obj1 为 obj2 的原型
+        // Object.setPrototypeOf(obj2, obj1);
+        // // 获取obj2的原型
+        // Object.getPrototypeOf( obj2 );
+        // // 判断obj1是不是obj2的原型
+        // obj1.isPrototypeOf( obj2 );
+
+
+        // let adress = Symbol('address');
+        // let phone = Symbol('phone');
+        // let obj = {
+        //     name: 'jerry',
+        //     age: 18,
+        //     [adress]: 'shenzhen',
+        //     [phone]: '123456789',
+        // }
+        // Object.getOwnPropertyNames( obj );   // => ['name', 'obj']
+        // Object.getOwnPropertySymbols(obj); // => [ Symbol('address'), Symbol('phone') ]
+        // Object.getOwnPropertyDescriptor(obj, 'name');  // => { writable: true, configurable: true, enumerable: true, value: 'jerry' }
+        // Object.getOwnPropertyDescriptors( obj ); // => { name: { writable: true, configurable: true, enumerable: true, value: 'jerry' } , age: { ... }}
+        // Object.hasOwnProperty('name'); // => true
+        // Object.defineProperty(obj, 'age', {
+        //     writable: false
+        // });
+        // Object.defineProperties(obj, {
+        //     name: {
+        //         enumerable: false
+        //     }
+        // });
+        // // obj.age = 20;  // TypeError  //已设置只读属性
+        // for (const key in obj) {
+        //     // for in 不会遍历出 Symbol 类型 以及 操作符 enumerable  为 false 的属性
+        //     console.log( key );  // age
+        // }
+
+
+
+        // Object.create()
+        // # 创建一个对象，并将新对象的__proto__指向 proto ,
+        // propretiesObject为可选对象，该传入对象的自有可枚举属性(即其自身定义的属性，而不是其原型链上的枚举属性)，将为新创建的对象添加指定的属性值和对应的属性描述符。
+        // # Object.create(proto, [propretiesObject]);
+
+        // let obj = {
+        //     name: 'herry',
+        // };
+        // let obj1 = new Object(obj);
+        // // ## 属性描述符默认值不同
+        // // Object.create() 第二个参数来创建非空对象的属性描述符默认为false，而构造函数或字面量方法创建的对象属性的描述符默认为true。
+        // let obj2 = Object.create(obj, {
+        //     name: {
+        //         enumerable: true,
+        //         // writable:true,
+        //         configurable: true,
+        //         // value: 'tom',
+        //         get: function(){
+        //             console.log('getting tom');
+        //         },
+        //         set: () => {
+        //             console.log( 'setting tom' );
+        //         }
+        //     },
+        //     age: {
+        //         writable: true,
+        //         enumerable: false,
+        //         value: 20
+        //     }
+        // });
+        // // console.log( obj1 );
+        // // console.log( obj2 );
+
+        // let newObj = {
+        //     newname:'newname',
+        // };
+
+        // Object.setPrototypeOf(obj2, newObj);
+
+        // console.log( obj2 );
+
+        // console.log( Object.getPrototypeOf( obj2 ));
+
+        // Object.getOwnPropertyDescriptors(obj) 获取一个对象自身所有的描述符
+
+        // Object.getOwnPropertyDescriptor(obj, key) //获取对象自身某一属性的描述符
+
+    //    改变对象的原型
+    //  Object.create(obj);
+    //  Object.setPrototypeOf(a, b)
+
+        
+
+      
+    </script>
+</body>
+
+</html>
