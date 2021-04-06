@@ -9,26 +9,60 @@
 
 <body>
     <script>
-        function User(){
-            this.show = function(){
-                console.log('inside show');
+        const protecteds = Symbol();
+        // 访问控制
+        class User{
+            // public 不受保护的属性，在内部和外部都可以访问到
+            address = '广东深圳';
+            _private = 'private';
+            // protected 受保护属性，不可以在外部直接操作，但可以继承后再类内部访问。
+            constructor(name, age){
+                console.log( name, age );
+                this[protecteds] = {};
+                this[protecteds].url = 'houdunren.com';
+                this.data = {
+                    name1: name,
+                    age1: age
+                }
+            };
+            get name1(){
+                console.log( this.address );
+                return this.data.name1;
+            };
+            set name1(value){
+                if( value.length > 10 ){
+                    throw new Error( 'name长度过长' );
+                };
+                this.data.name1 = value;
             }
         };
 
-        User.show = function(){
-            console.log( 'outside show' );
-        };
+        class Wangwu extends User{
+            constructor(name, age){
+                // super的用法  ，接收的参数会被父类接收。
+                // 如未定义， 则会报错： ReferenceError：Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+                super();
+                this[protecteds] = {pro_name: name }
+                this.data = {
+                    name: name,
+                    age: age,
+                }
+            };
+            state = {
+                name: 'jerry'
+            }
+            info(){
+                console.log( this );
+            };
+            get name(){
+                return this[protecteds].pro_name
+            }
+        }
 
-        User._name = 'Miracle';
+        let wangwu = new Wangwu('wangwu', 20);
 
-        let chen = new User();
-
-        User.show();  // outside show
-        console.log( User._name );  // Miracle
-
-        chen.show();  // inside show
-        console.log( chen.name );  // undfined
-
+        wangwu.info();
+        console.log( wangwu.name );
     </script>
 </body>
 
