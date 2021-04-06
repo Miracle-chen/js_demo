@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function User(){
+            this.show = function(){
+                console.log('inside show');
+            }
+        };
+
+        User.show = function(){
+            console.log( 'outside show' );
+        };
+
+        User._name = 'Miracle';
+
+        let chen = new User();
+
+        User.show();  // outside show
+        console.log( User._name );  // Miracle
+
+        chen.show();  // inside show
+        console.log( chen.name );  // undfined
+
+    </script>
+</body>
+
+</html>

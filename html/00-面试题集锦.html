@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            padding: 5px 10px;
+            margin: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+
+<script>
+    // console.log( typeof({}) );  // Object
+    // console.log( typeof([]) );  // object
+    // console.log( typeof(null) );  // object
+    // console.log( typeof(undefined) );  // undefined
+    // console.log( typeof(1) );  // number
+    // console.log( typeof('abc') ); // string
+    // console.log( typeof(()=>{}) );  // function
+    // console.log( typeof(true) ); // boolean
+    // console.log( typeof(Symbol()) );  // symbol
+
+    let html = '';
+    for( let i = 0; i< 10; i++ ){
+        html += `<a onclick="handleClick(${i})">${ i } </a>`;
+    };
+    console.log( html );
+    document.getElementById('box').innerHTML = html;
+    function handleClick(i){
+        alert( i );
+    }
+
+   // 判断数组类型
+
+   let arr = [1, 2, 3];
+
+   console.log(arr instanceof Array);
+   console.log(Array.isArray(arr));
+   console.log( arr.__proto__ === Array.prototype );
+   console.log( arr.__proto__.constructor === Array );
+
+    //原型链继承的例子
+
+    function Person (name) {
+        this.name = name;
+    };
+
+    Person.prototype.getName = function(){
+        return this.name;
+    }
+
+    let zhangsan = new Person('zhangsan');
+
+    console.log( zhangsan );
+
+    console.log( zhangsan.getName() );
+
+
+</script>
+
+
+</html>

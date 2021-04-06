@@ -9,6 +9,102 @@
 
 <body>
     <script>
+        function User (){};
+        function Admin(){};
+
+        Admin.prototype = User.prototype;
+
+        Admin.prototype.__proto__ = User.prototype;
+
+        let a = {name: '123'};
+        let b = {name: '234'};
+        let c = '123';
+
+        let a1 = Object.create(null);
+
+        a1.__proto__ = 'houdunren';
+
+        console.log( a1 );
+
+        Object.setPrototypeOf(b, a );
+
+        console.dir( b );
+
+        // return a;
+
+
+        let obj = { a: 1 };
+        obj.__proto__.show = function(){
+            console.log( 'show' );
+        }
+        for (const key in obj) {
+            if( obj.hasOwnProperty( key ))
+            console.log( key );
+        }
+        console.log(obj);
+
+        // function A() {}
+        // function B() {}
+        // function C() {}
+
+        // // const c = new C();
+        // // B.prototype = c;
+        // // const b = new B();
+        // // A.prototype = b;
+        // const a = new A();
+
+        // // console.dir(a instanceof A);
+        // // console.dir(a instanceof B);
+        // // console.dir(a instanceof C);
+        // // console.dir(b instanceof C);
+        // // console.dir(c instanceof B);
+
+        // console.log(a.__proto__);
+
+
+        // 
+
+        // onst a = {};
+        // const b = {};
+        // const c = {};
+
+        // Object.setPrototypeOf(a, b);
+        // Object.setPrototypeOf(b, c);
+
+        // console.log(b.isPrototypeOf(a));
+        // console.log(c.isPrototypeOf(a));
+        // console.log(c.isPrototypeOf(b));
+
+        // function Person (name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // };
+
+        // let zhangsan  = new Person('zhangsan');
+
+        // function createByObject(...args ){
+        //     // const constructor = Person.prototype.constructor;
+
+        //     const constructor = Object.getPrototypeOf(zhangsan).constructor;
+        //     return new constructor( ...args );
+        // };
+
+        // let lisi = createByObject('lisi', 19);
+
+        // console.log( lisi );
+
+        // console.log( zhangsan );
+
+
+
+        // // 深拷贝
+        // let obj = {
+        //     name: "后盾人",
+        //     user: {
+        //         name: "hdcms"
+        //     },
+        //     data: []
+        // };
 
         // 原型和原型链
 
