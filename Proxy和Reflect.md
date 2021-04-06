@@ -105,3 +105,5 @@ Reflect.get( data, 'info', zhangsan );  // zhangsan 40
 Reflect.get( data, 'info' );  // tom 20
 ```
 
+#### Reflect.set(target, propertyKey, value, receiver)
+
