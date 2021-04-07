@@ -35,6 +35,47 @@
         // let admin1 = new Admin1('admin');
 
         // console.log( admin1 );
+
+        // 调用父类的方法
+        class User{
+            show(){
+                console.log( 'User.show', this.name );
+            }
+        };
+
+        class Admin extends User{
+            constructor(name){
+                super();
+                this.name = name;
+            };
+
+            show(){
+                super.show();
+            }
+        };
+
+        let admin = new Admin('admin');
+
+        admin.show();
+
+        // 调用父类的方法 原理
+
+        let user = {
+            name: 'user',
+            show(){
+                console.log( 'user show', this.name );
+            }
+        };
+
+        let admin = {
+            name: 'admin',
+            __proto__: user,
+            show(){
+                // 调用原型上的show方法，将其this指向admin。类似于类中的 super
+                this.__proto__.show.call(this);
+            }
+        }
+        admin.show();
     </script>
 </body>
 </html>
