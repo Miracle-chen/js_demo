@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            
+        */ 
+        let data = [
+            { name: "js", price: 100 },
+            { name: "mysql", price: 212 },
+            { name: "vue.js", price: 98 }
+        ];
+        class User {
+            constructor(name) {
+                this.name = name;
+            };
+            showName() {
+                return this.name;
+            };
+            //匹配包含名字的课程
+            filterListByName(name){
+                return data.filter( i => i.name.includes( name ));
+            };
+            // 父类中的，计算所有课程价格的总和
+            sum(){
+                return data.reduce((acc, cur) => acc + cur.price, 0 );
+            };
+            // 获取课程中价格最大的
+            max(){
+                return data.map( i => i.price ).sort((a, b) => b - a )[0];
+            }
+        };
+
+        class Admin extends User {
+            constructor(name) {
+                // super后不跟方法名，默认执行的是父类的constructor构造函数。
+                super(name);
+            };
+            // 在子类重写父类的方法， 只获取对应课程的名字
+            filterListByName(value){
+                // super后跟着方法，是调用父类中对应的方法。
+                return super.filterListByName(value).map( i => i.name )
+            }
+        };
+
+        let hd = new Admin('admin');
+        hd.showName();
+        hd.sum();
+        hd.max();
+        hd.filterListByName('js');
+
+    </script>
+</body>
+
+</html>

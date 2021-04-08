@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class User {
+            static name = 'herry';
+            static showName() {
+                return this.name;
+            };
+            sum() { };
+        };
+
+        class Admin extends User { };
+        let admin = new Admin();
+
+        console.log(admin);
+
+        /*
+            在上述代码中，静态属性和静态方法都是被加在了类User的对象上，而不是在其prototype原型上，但是sum是加在了其prototype上。
+            类Admin继承了类User，Admin.prototype.__proto__就指向了User.prototype，也就是 Admin.prototype.__proto__ === User.prototype。
+            然后通过new 创建一个Admin实例 admin， admin.__proto__ 就指向了 Admin.prototype, 所以 admin.__proto__.__proto__ === User.prototype。
+            在上述代码中， sum是在User.prototype上，所以 admin 可以访问到 sum， 但是访问不到 User 的 静态方法showName和静态属性name
+        
+        */
+
+        // 下边通过构造函数来分析下其实现原理
+
+        function User() { };
+        User.name = 'herry';
+        User.showName = function () { };
+        User.prototype.sum = function () { };
+        function Admin() { };
+        Admin.prototype.__proto__ = User.prototype;
+        let admin = new Admin();
+        console.dir(admin);
+
+    </script>
+</body>
+
+</html>
