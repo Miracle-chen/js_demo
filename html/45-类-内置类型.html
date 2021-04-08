@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let obj1 = {
+            a: 1,
+        };
+
+        let obj2 = {
+            b: 2 
+        };
+
+        let obj = Object.assign(obj1, obj2);
+        console.log( obj );
+        console.log( obj1 );
+        console.log( obj2 );
+        // 使用继承增强内置类（构造函数版本）
+        // function Arr(...args){
+        //     args.forEach( i => this.push( i ));
+        //     this.first = function(){
+        //         return this[0]
+        //     };
+        //     this.max = function(){
+        //         return this.sort((a, b) => b - a)[0]
+        //     }
+        // }
+
+        // Arr.prototype = Object.create(Array.prototype);
+
+        // let arr = new Arr(1, 208, 3, 4, 5);
+
+        // console.log( arr.first() );
+        // console.log( arr.max() );
+
+        // 使用继承增强内置类（类版本）
+        class Arr extends Array {
+            constructor(...args) {
+                super(...args);
+            };
+            first() {
+                return this[0]
+            };
+            max() {
+                return this.sort((a, b) => b - a)[0]
+            }
+        };
+        let arr = new Arr(1, 208, 3, 4, 5);
+
+        console.log(arr.first());
+        console.log(arr.max());
+    </script>
+</body>
+
+</html>

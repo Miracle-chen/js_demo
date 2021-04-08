@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const data = [
+            { name: "js", price: 100 },
+            { name: "mysql", price: 212 },
+            { name: "vue.js", price: 98 }
+        ];
+
+        class Lessons {
+            constructor(lessons) {
+                this.lessons = lessons;
+            };
+            // get data() {
+            //     return this.lessons;
+            // }
+        };
+
+        const Tools = {
+            max(key) {
+                return this.lessons.sort((a, b) => b[key] - a[key])[0]
+            }
+        };
+
+        Object.assign(Lessons.prototype, Tools);
+
+        let les = new Lessons(data);
+
+        console.log( les.max("price") );
+    </script>
+</body>
+
+</html>
