@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .hightRemark{
+        color: red;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <div>houdunren.com</div>
+</body>
+<script>
+    // /* 找数字 */ 
+    // let str = 'asd465as56das6d5a6sd56asd5zx12zxc3asd45sdf';
+    // let numList = str.match(/\d/g).join('');
+    // console.log( numList );
+
+    // /* 连续匹配内容高亮显示 */ 
+    // let content = prompt('请输入内容，支持正则');
+    // // 此种方法可以传入变量作为正则表达式
+    // let reg = new RegExp(content, 'g');
+    // let el = document.querySelector('div').innerHTML;
+
+    // document.body.innerHTML = el.replace(reg, item => `<span class='hightRemark'>${ item }</span>`);
+
+
+    // /* 选择符 */ 
+    // let mobile = '010-9999999';
+    // let reg = /^(010|020)\-\d{7,8}$/;
+
+    // console.log( reg.test(mobile) );
+
+    // /* 转义符 */ 
+    // let price = 12.23;
+    // // 字符串中 '\d' === 'd', 在使用呢哇RegExp的时候，要多转义一次
+    // let reg = new RegExp('\\d{2}\\.\\d{2}');
+
+    // console.log(reg.test(price));
+    // console.log( /\d{2}\.\d{2}/.test(price));
+
+    let url = 'https://www.baidu.com';
+
+    let reg = /^https?:\/\/\w+\.\w+\.\w+$/;
+
+    console.log( reg.test(url) );
+
+</script>
+</html>
