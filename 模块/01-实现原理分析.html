@@ -25,9 +25,13 @@
             modules.map((m, i) => {
                 modules[i] = moduleLists[m];
             });
+
+            console.log( modules );
             //执行并保存模块
             moduleLists[name] = action.apply(null, modules);
         }
+
+        console.log( moduleLists );
 
         return { define };
     })();
@@ -43,6 +47,12 @@
 
     //声明模块时依赖其它模块
     module.define("xj", ["hd"], function (hd) {
+        hd.show();
+    });
+    module.define("SB", ["hd"], function (hd) {
+        hd.show();
+    });
+    module.define("DSB", ["hd"], function (hd) {
         hd.show();
     });
 </script>
