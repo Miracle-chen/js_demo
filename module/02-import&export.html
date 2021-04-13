@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            padding: 5px 10px;
+            margin: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+<script type="module">
+    import * as com from './index.js';
+    com.hd.func();
+    import('./01.js').then( res => console.log( 'res' , res.func ));
+    console.log( import( './01.js' ))
+</script>
+
+
+</html>
