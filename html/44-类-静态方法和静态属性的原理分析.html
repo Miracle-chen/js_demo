@@ -9,18 +9,18 @@
 
 <body>
     <script>
-        class User {
-            static name = 'herry';
-            static showName() {
-                return this.name;
-            };
-            sum() { };
-        };
+        // class User {
+        //     static name = 'herry';
+        //     static showName() {
+        //         return this.name;
+        //     };
+        //     sum() { };
+        // };
 
-        class Admin extends User { };
-        let admin = new Admin();
+        // class Admin extends User { };
+        // let admin = new Admin();
 
-        console.log(admin);
+        // console.log(admin);
 
         /*
             在上述代码中，静态属性和静态方法都是被加在了类User的对象上，而不是在其prototype原型上，但是sum是加在了其prototype上。
@@ -32,14 +32,124 @@
 
         // 下边通过构造函数来分析下其实现原理
 
-        function User() { };
-        User.name = 'herry';
-        User.showName = function () { };
-        User.prototype.sum = function () { };
-        function Admin() { };
-        Admin.prototype.__proto__ = User.prototype;
-        let admin = new Admin();
-        console.dir(admin);
+        // function User() { };
+        // User.name = 'herry';
+        // User.showName = function () { };
+        // User.prototype.sum = function () { };
+        // function Admin() { };
+        // Admin.prototype.__proto__ = User.prototype;
+        // let admin = new Admin();
+        // console.dir(admin);
+
+
+        // 
+        // const add = () => {
+        //     const cache = {};
+        //     return num => {
+        //         if (num in cache) {
+        //             return `From cache! ${cache[num]}`;
+        //         } else {
+        //             const result = num + 10;
+        //             cache[num] = result;
+        //             return `Calculated! ${result}`;
+        //         }
+        //     };
+        // };
+
+        // const addFunction = add();
+        // console.log(addFunction(10));
+        // console.log(addFunction(10));
+        // console.log(addFunction(5 * 2));
+
+        // function sum(a, b) {
+        //     return a + b;
+        // }
+
+        // const { name: myName } = { name: "Lydia" };
+
+        // console.log(myName);
+
+        // const box = { x: 10, y: 20 };
+
+        // Object.freeze(box);
+
+        // const shape = box;
+        // shape.x = 100;
+        // console.log(shape);  //{ x: 10, y: 20 }
+
+        // function addToList(item, list) {
+        //     let _list = [];
+        //     list.push(item);
+        //     return list;
+        //     // console.log( list );
+        // }
+
+        // const result = addToList("apple", ["banana"]);
+        // console.log(result); // ["apple"]
+
+
+        // const box = { x: 10, y: 20 };
+
+        // box.x = 100;
+
+        // let obj = box;
+
+        // obj.y = 200;
+
+        // console.log( box ); // { x: 100, y: 20 }
+
+        // console.log( obj ); // { x:100 , y:200 }
+
+        // const a ='123';
+
+        // a = 2;
+
+        // console.log( a );
+
+
+        // let a = 1;
+
+        // let b = a ;
+
+        // b = 2;
+
+        // console.log( a );
+
+        // async function getData() {
+        //     return await Promise.resolve("I made it!");
+        // }
+
+        // const data = getData();
+
+        // console.log(data);
+
+        // console.log(data.then(res => console.log(res)));
+
+
+        // function* startGame() {   //Generator
+        //     const 答案 = yield "Do you love JavaScript?";
+        //     if (答案 !== "Yes") {
+        //         return "Oh wow... Guess we're gone here";
+        //     }
+        //     return "JavaScript loves you back ❤️";
+        // }
+
+        // const game = startGame();
+        // console.log(/* 1 */); // Do you love JavaScript?
+        // console.log(/* 2 */); // JavaScript loves you back ❤️
+
+        function* foo(x) {
+            yield x + 1;
+            yield x + 2;
+            return x + 3;
+        };
+
+        foo(1).next(res => console.log( res ));
+        let a = foo(1);
+        console.log(a.next());
+        console.log(a.next());
+        console.log(a.next());
+
 
     </script>
 </body>
