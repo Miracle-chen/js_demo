@@ -12,9 +12,40 @@
     }
 </style>
 <body>
-    <div>houdunren.com</div>
+    <!-- <div>houdunren.com</div> -->
+    <!-- <h1>我是H1</h1> -->
+    <!-- <h2>我是H2</h2> -->
+    <div>
+        后盾人不断分享视频教程，学习后盾人教程提升编程能力。
+    </div>
 </body>
 <script>
+
+    let div = document.querySelector('div');
+
+    div.innerHTML = div.innerHTML.replace(/后盾人(?=教程)/gi,  i => `<a href = "www.houdunren.com">${ i }</a>`);
+
+    let str = 'abc1234sdf234';
+
+    console.log(str.match(/(?<=abc)\d+/g));
+
+    let users = `
+        电话1: 12345678901
+        电话2: 98745675603
+    `;
+
+    let reg = /(?<=\d{7})\d{4}/g;
+
+    users = users.replace(reg, i => '*'.repeat(4));
+
+    console.log( users );
+
+    // 正则操作DOM元素 ， 删除h1 - h6
+    // document.body.innerHTML = document.body.innerHTML.replace(/<(h[1-6])>[\s\S}]*<\/(h[1-6])>/i, "")
+
+
+
+
     // /* 找数字 */ 
     // let str = 'asd465as56das6d5a6sd56asd5zx12zxc3asd45sdf';
     // let numList = str.match(/\d/g).join('');
@@ -43,11 +74,39 @@
     // console.log(reg.test(price));
     // console.log( /\d{2}\.\d{2}/.test(price));
 
-    let url = 'https://www.baidu.com';
+    // let url = 'https://www.baidu.com';
 
-    let reg = /^https?:\/\/\w+\.\w+\.\w+$/;
+    // let reg = /^https?:\/\/\w+\.\w+\.\w+$/;
 
-    console.log( reg.test(url) );
+    // console.log( reg.test(url) );
+
+    // let reg = /\d/;
+    // let str = '123abc123abc';
+
+    // console.log( str.match(/\D/g));
+
+    // console.log( '123'.match(reg));
+
+    // // m 多行匹配修正符
+    // let hd = `
+    //     #1 js,200元 #
+    //     #2 php,300元 #
+    //     #9 houdunren.com # 后盾人
+    //     #3 node.js,180元 #
+    // `;
+    // let arr = [];
+    // let list = hd.match(/^\s*#\d+\s+.+\s+#$/gm).map( i => {
+    //     let item = i.replace(/\s*#\d+\s*/, "").replace(/\s+#\s*/, "");
+    //     let [key, value] = item.split(',');
+    //     arr.push({ name: key, price: value })
+    // })
+    // console.log( arr );
+
+    // // 排除字符
+    // let str = 'zhangsan:1231231-234';
+    // console.log( str.match( /[^\d:-]+/g ));
+
+  
 
 </script>
 </html>

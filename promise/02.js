@@ -1,0 +1,4 @@
+
+function hdcms (){
+    hd();
+}
